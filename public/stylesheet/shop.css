@@ -1,0 +1,144 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	background-color: #000;
+}
+.navbar {
+	border-bottom: 2px solid white;
+	padding: 1rem;
+}
+
+.navbar-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+/* Logo styles */
+.navbar-logo {
+	font-size: 2rem;
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+/* Navbar links */
+.navbar-links {
+	display: flex;
+	gap: 2.5rem;
+	list-style: none;
+}
+
+.navbar-link {
+	color: white;
+	font-size: 1.25rem;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.navbar-link:hover {
+	color: rgb(136, 134, 134);
+}
+
+.container {
+	width: 100%;
+	padding: 20px;
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.container-card {
+	display: flex;
+	background-color: #1c1c1d;
+	width: 290px;
+	height: 550px;
+	border-radius: 10px;
+}
+
+.card {
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	height: 520px;
+}
+
+.image-wrapper {
+	position: relative;
+	width: 290px;
+	height: 400px;
+	padding: 10px;
+	background-color: #0e0c0c;
+	position: relative;
+}
+
+.image-wrapper img {
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+}
+
+.content {
+	padding: 16px;
+}
+
+.title {
+	font-weight: 600;
+	text-align: justify;
+	color: #f1eeee;
+	text-decoration: none;
+	transition: color 0.5s ease;
+}
+
+.title:hover {
+	color: #4f46e5;
+}
+
+.price {
+	display: flex;
+	gap: 20px;
+	margin-top: 10px;
+}
+.current-price {
+	font-size: 20px;
+	font-weight: 700;
+	color: #f1eeee;
+}
+
+.original-price {
+	font-size: 20px;
+	color: #64748b;
+	text-decoration: line-through;
+}
+.discount {
+	font-size: 20px;
+	color: #2272e1;
+	font-weight: 700;
+}
+.add {
+	display: flex;
+	width: 100%;
+	padding: 10px;
+}
+.addtocart {
+	margin-top: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+}
+.addtocartbut {
+	width: 150px;
+	height: 40px;
+	font-size: 20px;
+	background-color: #2e2c2c;
+	border: 2px solid white;
+	border-radius: 10px;
+	color: white;
+}

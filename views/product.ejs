@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Product</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+			rel="stylesheet" />
+		<link rel="stylesheet" href="/stylesheet/product.css" />
+	</head>
+	<body>
+		<div class="product-create">
+			<div>
+				<a href="/owners/createproduct">
+					<button class="product-button">Create Product</button>
+				</a>
+			</div>
+			<div class="logout">
+				<a href="/owners/logout">
+					<button class="product-button">Logout</button>
+				</a>
+			</div>
+		</div>
+		<div class="container">
+			<% Product.forEach((elem)=>{%>
+			<div class="container-card">
+				<div class="card">
+					<a href="#"></a>
+					<div class="image-wrapper">
+						<a href="#">
+							<img
+								src="data:image/png;base64,<%= elem.image ? elem.image.toString('base64') : '' %>"
+								alt="Sunset in the mountains" />
+
+							<div class="edit-icon">
+								<i
+									class="ri-edit-box-fill"
+									onclick="EditClick('<%=elem._id%>')"
+									id="EditPop"></i>
+							</div>
+						</a>
+					</div>
+					<div class="content">
+						<a href="#" class="title"><%= elem.name%></a>
+						<div class="price">
+							<p class="original-price">₹<%= Number(elem.price)+40 %></p>
+							<p class="current-price">₹<%= elem.price%></p>
+							<p class="discount"><%= elem.discount %>% Off</p>
+
+							<div class="popup-overlay" id="popupOverlay<%= elem._id %>">
+								<div class="popup-con">
+									<div class="popup">
+										<div class="popup-header">
+											<span
+												class="close-btn"
+												onclick="ClosePop('<%= elem._id %>')">
+												<i class="ri-eye-close-fill"></i>
+											</span>
+										</div>
+										<form
+											action="/owners/edit/<%= elem._id%> "
+											method="post"
+											enctype="multipart/form-data">
+											<div class="blog-picture">
+												<img
+													src="data:image/png;base64,<%= elem.image ?
+												elem.image.toString('base64') : '' %>"
+													alt="" />
+												<input
+													id="file<%=elem._id%>"
+													type="file"
+													class="hidden"
+													name="image"
+													accept="picture" />
+												<button
+													id="editbtn"
+													type="button"
+													onclick="editpicture('<%=elem._id%>')">
+													Edit Picture
+												</button>
+											</div>
+											<div class="form-group">
+												<input
+													id="postTitle"
+													type="text"
+													name="name"
+													placeholder="Enter the title"
+													value="<%= elem.name%>" />
+											</div>
+											<div class="form-group">
+												<input
+													id="postCategory"
+													type="number"
+													name="price"
+													placeholder="Create Category"
+													value="<%= elem.price%>" />
+											</div>
+											<div class="form-group">
+												<input
+													id="postCategory"
+													type="number"
+													name="discount"
+													placeholder="Create Category"
+													value="<%= elem.discount%>" />
+											</div>
+											<div class="save-btun">
+												<button class="save-btn">Update</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<%})%>
+		</div>
+
+		<script>
+			function EditClick(elemId) {
+				const editPopup = document.getElementById("popupOverlay" + elemId);
+				editPopup.style.display = "block";
+			}
+			function ClosePop(elemId) {
+				const editPopup = document.getElementById("popupOverlay" + elemId);
+				editPopup.style.display = "none";
+			}
+			function editpicture(editId) {
+				const file = document.getElementById("file" + editId).click();
+			}
+		</script>
+	</body>
+</html>
+

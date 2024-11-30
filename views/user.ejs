@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Scatch-Login</title>
+		<link rel="stylesheet" href="/stylesheet/user.css" />
+	</head>
+	<body>
+		<div class="main">
+			<div class="main-image">
+				<img
+					src="https://images.unsplash.com/photo-1651573090348-4ccf3924ef82?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+					alt="" />
+				<div class="container">
+					<div class="half-section">
+						<div class="form-container">
+							<h3>Welcome to <span>Scatch</span></h3>
+							<h4>Create Your Account</h4>
+							<form autocomplete="off" action="/users/register" method="post">
+								<input
+									type="text"
+									placeholder="Full Name"
+									name="fullname"
+									required />
+								<input type="email" placeholder="Email" name="email" required />
+								<input
+									type="password"
+									placeholder="Password"
+									name="password"
+									required />
+								<input type="submit" value="Create My Account" />
+							</form>
+						</div>
+					</div>
+					<div class="half-section">
+						<div class="form-container">
+							<h4>Login Your Account</h4>
+							<form autocomplete="off" action="/users/login" method="post">
+								<input type="email" placeholder="Email" name="email" required />
+								<input
+									type="password"
+									placeholder="Password"
+									name="password"
+									required />
+								<input type="submit" value="Login" />
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+<%- include('./partials/footer') %>
+

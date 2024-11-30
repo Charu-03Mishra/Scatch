@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>CreateProduct</title>
+		<link rel="stylesheet" href="/stylesheet/createproduct.css" />
+	</head>
+	<body>
+		<main class="main-content">
+			<div class="container">
+				<div class="heading">
+					<h2>Create New Product</h2>
+				</div>
+				<div class="content-data">
+					<form
+						action="/owners/product"
+						method="post"
+						enctype="multipart/form-data"
+						autocomplete="off">
+						<!-- Product Details -->
+						<div class="form-section">
+							<h3>Product Details</h3>
+							<div class="form-group">
+								<label for="postImage">Upload Product Image</label>
+								<div class="upload-container">
+									<label class="upload-box">
+										<div class="upload-content">
+											<p>Click to upload or drag and drop</p>
+											<input
+												id="postImage"
+												type="file"
+												name="image"
+												class="hidden-input" />
+										</div>
+									</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="postTitle">Product Name</label>
+								<input
+									id="productname"
+									type="text"
+									name="name"
+									placeholder="Enter the Product Name" />
+							</div>
+							<div class="form-group">
+								<label for="postDescription">Product Discount</label>
+								<input
+									id="productdiscount"
+									type="number"
+									name="discount"
+									placeholder="Enter the discount" />
+							</div>
+							<div class="form-group">
+								<label for="postDescription">Post Description</label>
+								<input
+									id="productprice"
+									type="number"
+									name="price"
+									placeholder="Enter the price" />
+							</div>
+						</div>
+						<!-- Submit Button -->
+						<div class="submit-btn-container">
+							<button type="submit" class="submit-btn">Create Product</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>
+

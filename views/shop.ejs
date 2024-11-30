@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Product</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+			rel="stylesheet" />
+		<link rel="stylesheet" href="/stylesheet/shop.css" />
+	</head>
+	<body>
+		<nav class="navbar">
+			<div class="navbar-container">
+				<!-- Logo / Home -->
+				<a href="/" class="navbar-logo">Scatch</a>
+
+				<ul class="navbar-links">
+					<li><a href="/home" class="navbar-link">Home</a></li>
+					<li><a href="/shop" class="navbar-link">Shop</a></li>
+					<li><a href="/cart" class="navbar-link">Cart</a></li>
+					<li><a href="/users/logout" class="navbar-link">Logout</a></li>
+				</ul>
+			</div>
+		</nav>
+		<section>
+			<div class="container">
+				<% product.forEach((elem)=>{%>
+				<div class="container-card">
+					<div class="card">
+						<a href="#"></a>
+						<div class="image-wrapper">
+							<a href="#">
+								<img
+									src="data:image/png;base64,<%= elem.image ? elem.image.toString('base64') : '' %>"
+									alt="Sunset in the mountains" />
+							</a>
+						</div>
+						<div class="content">
+							<a href="#" class="title"><%= elem.name%></a>
+							<div class="price">
+								<p class="original-price">₹<%= Number(elem.price)+40 %></p>
+								<p class="current-price">₹<%= elem.price%></p>
+								<p class="discount"><%= elem.discount %>% Off</p>
+							</div>
+							<div class="add">
+								<div class="addtocart">
+									<a href="/addtocart/<%= elem._id%>">
+										<button class="addtocartbut">
+											Add to Cart
+											<span><i class="ri-luggage-cart-line"></i></span>
+										</button>
+									</a>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<%})%>
+			</div>
+		</section>
+	</body>
+</html>
+

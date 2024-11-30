@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Scatch-Login</title>
+		<link rel="stylesheet" href="/stylesheet/output.css" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+			rel="stylesheet" />
+	</head>
+
+	<body class="font-['helvetica_now_display']">
+		<nav class="bg-gray-800 p-4">
+			<div class="container mx-auto flex justify-between items-center">
+				<!-- Logo / Home -->
+				<a href="/" class="text-2xl text-white font-bold"> Scatch </a>
+
+				<!-- Links -->
+				<% var loggedin = typeof loggedin !== "undefined" ? loggedin : true %>
+				<% if (loggedin) { %>
+				<ul class="flex gap-10">
+					<li>
+						<a href="/home" class="text-gray-300 text-xl">Home</a>
+					</li>
+					<li>
+						<a href="/shop" class="text-gray-300 text-xl">Shop</a>
+					</li>
+					<li>
+						<a href="/cart" class="text-gray-300 text-xl">Cart</a>
+					</li>
+					<li>
+						<a href="/myaccount" class="text-gray-300 text-xl">My Account</a>
+					</li>
+					<li>
+						<a href="/users/logout" class="text-gray-300 text-xl">Logout</a>
+					</li>
+				</ul>
+				<% } %>
+			</div>
+		</nav>
+	</body>
+</html>
+

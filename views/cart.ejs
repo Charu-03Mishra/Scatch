@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Cart Page</title>
+		<link rel="stylesheet" href="/stylesheet/cart.css" />
+	</head>
+	<body>
+		<nav class="navbar">
+			<div class="navbar-container">
+				<!-- Logo / Home -->
+				<a href="/" class="navbar-logo">Scatch</a>
+
+				<ul class="navbar-links">
+					<li><a href="/home" class="navbar-link">Home</a></li>
+					<li><a href="/shop" class="navbar-link">Shop</a></li>
+					<li><a href="/cart" class="navbar-link">Cart</a></li>
+					<li><a href="/users/logout" class="navbar-link">Logout</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="container">
+			<div class="cart-header">
+				<h1>Your Cart</h1>
+				<% if (cart.length > 0) { %>
+				<span><%= cart.length %></span>
+				<% } else { %>
+				<span>0</span>
+				<% } %>
+			</div>
+
+			<% cart.forEach((elem) => { %>
+
+			<div class="cart-item">
+				<img
+					src="data:image/png;base64,<%= elem.image ? elem.image.toString('base64') : '' %>"
+					alt="product image" />
+				<div class="item-details">
+					<div class="item-title"><%=elem.name%></div>
+					<div class="price">
+						<div class="original-price">
+							₹<%= Number(elem.price)*Number(elem.quantity)+40 %>
+						</div>
+						<div class="current-price">
+							₹<%= Number(elem.price)*Number(elem.quantity) %>
+						</div>
+						<div class="item-price"><%=elem.discount%>% Off</div>
+					</div>
+				</div>
+				<div class="quantity-control">
+					<a href="/remove/<%= elem._id%>">
+						<button>-</button>
+					</a>
+					<input type="text" value="<%= elem.quantity%>" readonly />
+					<a href="/addtocart/<%= elem._id%>">
+						<button>+</button>
+					</a>
+				</div>
+			</div>
+
+			<% }) %>
+			<div class="cart-footer">
+				<div class="total-price">Total: ₹ <%= finalPrice %></div>
+				<button class="checkout-button">Proceed to Checkout</button>
+			</div>
+		</div>
+	</body>
+</html>
+
